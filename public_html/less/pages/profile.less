@@ -1,0 +1,158 @@
+.profile{
+  padding: 2em;
+
+  h1 {
+    font-size: 2em;
+    margin-bottom: 1em;
+    font-style: italic;
+  }
+
+  &__top{
+    .display-flex;
+    .align-items(flex-start);
+  }
+
+  &__achievements{
+
+    margin-left: 2em;
+
+    h2{
+      font-size: 1.3em;
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+
+    .flex(4);
+
+    &__strip{
+      margin: -.5em;
+      img{
+        margin: .5em;
+        .filter(drop-shadow(0 0 .3em @clr-grey-400));
+        height: 4.6em;
+      }
+    }
+
+    &__empty{
+      text-align: center;
+      font-size: 1.1em;
+      color: @clr-green-600;
+      font-style: italic;
+    }
+  }
+
+  &__header{
+
+    .flex(2);
+
+    .display-flex;
+    .flex-direction-column;
+    .align-items(center);
+
+    .card;
+    padding: 1em;
+
+    &__photo{
+
+      img{
+        width: 6em;
+        height: 6em;
+        border-radius: 50%;
+      }
+    }
+
+    &__data{
+      text-align: center;
+      margin: 1em 0;
+    }
+    &__name{
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+    &__details{
+      margin: .6em 0;
+      color: @clr-grey-700;
+    }
+    &__created{
+
+      font-size: .9em;
+      color: @clr-grey-500;
+
+    }
+    &__buttons{
+      .display-flex;
+      .align-items(center);
+      p{
+        margin: 0 .5em;
+      }
+    }
+  }
+
+  &__connections{
+    .display-flex;
+    margin-top: 2em;
+
+    & > div{
+      .flex;
+      margin: 0 1em;
+
+      &:first-child{
+        margin-left: 0;
+      }
+
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+
+    h3{
+      font-size: 1.2em;
+      margin-bottom: 1em;
+      font-style: italic;
+    }
+
+    &__list{
+
+    }
+
+    &__empty{
+      color: @clr-grey-500;
+      font-style: italic;
+      text-align: center;
+    }
+
+    &__person{
+
+      .display-flex;
+      .align-items(center);
+
+      .card;
+      padding: .5em;
+      margin-bottom: .5em;
+
+      &__photo{
+        margin-right: 1em;
+        img{
+          width: 3em;
+          height: 3em;
+          border-radius: 50%;
+          display: block;
+        }
+      }
+
+      &__data{
+
+      }
+      &__name{
+        font-weight: bold;
+        margin-bottom: .4em;
+      }
+      &__details{
+        font-size: .9em;
+        color: @clr-grey-700;
+      }
+    }
+  }
+
+
+}

@@ -1,0 +1,55 @@
+.btn {
+  .font-body;
+  display: inline-block;
+  padding: .8em 1.1em;
+  border-radius: 0.2em;
+  .box-shadow(0 .1em .2em fade(black, 10%));
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+  border-width: 1px;
+  border-style: solid;
+  cursor: pointer;
+
+  &.disabled, &:disabled{
+    opacity: .5;
+    cursor: default;
+    .box-shadow(none);
+  }
+}
+
+.btn-style(@btn-color) {
+  color: contrast(@btn-color, @clr-grey-50, @clr-grey-900);
+  background-color: @btn-color;
+  border-color: darken(@btn-color, 20%);
+  @shadow: 0 .1em 0 lighten(@btn-color, 10%) inset, 0 -.05em 0 darken(@btn-color, 10%) inset;
+  .box-shadow(@shadow);
+}
+
+.btn-default {
+  .btn-style(@clr-grey-300);
+}
+.btn-primary {
+  .btn-style(@main-color);
+}
+.btn-success{
+  .btn-style(@success-color);
+}
+.btn-warning{
+  .btn-style(@warning-color);
+}
+.btn-info{
+  .btn-style(@info-color);
+}
+.btn-danger{
+  .btn-style(@danger-color);
+}
+
+.btn-sm{
+  font-size: .8em!important;
+}
+
+.btn-xs{
+  font-size: .8em!important;
+  padding: .4em .6em;
+}

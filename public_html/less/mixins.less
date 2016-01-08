@@ -1,0 +1,244 @@
+.font-body() {
+  font-family: @font-body;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.font-headers() {
+  font-family: @font-headers;
+}
+
+.font-monospace() {
+  font-family: @font-mono;
+}
+
+// FLEXBOX MIXINS
+
+.display-flex() {
+  display: -webkit-box; // OLD - iOS 6-, Safari 3.1-6
+  display: -moz-box; // OLD - Firefox 19- (buggy but mostly works)
+  display: -ms-flexbox; // TWEENER - IE 10
+  display: -webkit-flex; // NEW - Chrome
+  display: flex; // NEW, Spec - Opera 12.1, Firefox 20+
+}
+
+.flex(@num: 1) {
+  -webkit-box-flex: @num; // OLD - iOS 6-, Safari 3.1-6
+  -moz-box-flex: @num; // OLD - Firefox 19-
+  -webkit-flex: @num; // Chrome
+  -ms-flex: @num; // IE 10
+  flex: @num; // NEW, Spec - Opera 12.1, Firefox 20+
+}
+
+.flex-direction-column() {
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+
+.align-items(@dir) {
+  -webkit-box-align: @dir;
+  -moz-box-align: @dir;
+  -webkit-align-items: @dir;
+  -ms-flex-align: @dir;
+  align-items: @dir;
+}
+
+.justify-content(@dir) {
+  -webkit-box-pack: @dir;
+  -moz-box-pack: @dir;
+  -webkit-justify-content: @dir;
+  -ms-flex-pack: @dir;
+  justify-content: @dir;
+}
+
+.flex-wrap() {
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.flex-basis(@size) {
+  -webkit-flex-basis: @size;
+  -moz-flex-basis: @size;
+  flex-basis: @size;
+}
+
+.flex-order(@order) {
+  -ms-flex-order: @order;
+  -webkit-order: @order;
+  order: @order;
+}
+
+.align-self(@dir){
+  -webkit-align-self: @dir;
+  align-self: @dir;
+}
+
+.appearance-none(){
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.placeholder-color(@color){
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+  &::-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+}
+
+
+// DISPLAY MIXINS (ACTUALLY, CLASSES)
+.phone-only {
+  @media @tablet{
+    display: none;
+  }
+}
+
+.text-right{
+  text-align: right;
+}
+
+// CROSS-BROWSER MIXINS
+
+.box-shadow(@args) {
+  -webkit-box-shadow: @args;
+  -moz-box-shadow: @args;
+  box-shadow: @args;
+}
+
+.transform(@args) {
+  -ms-transform: @args; // IE9
+  -webkit-transform: @args; // Chrome, Safari, Opera
+  transform: @args;
+}
+
+.transform-origin(@args) {
+  -ms-transform-origin: @args; // IE9
+  -webkit-transform-origin: @args; // Chrome, Safari, Opera
+  transform-origin: @args;
+}
+
+.transition(@args) {
+  -webkit-transition: @args;
+  -moz-transition: @args;
+  -ms-transition: @args;
+  -o-transition: @args;
+  transition: @args;
+}
+
+.box-sizing() {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.placeholder-color(@color){
+  &::-webkit-input-placeholder {
+    color: @color;
+  }
+  &::-moz-placeholder {
+    color: @color;
+  }
+  &:-ms-input-placeholder {
+    color: @color;
+  }
+}
+
+.filter(@args) {
+  -webkit-filter: @args;
+  -moz-filter: @args;
+  -ms-filter: @args;
+  -o-filter: @args;
+  filter: @args;
+}
+
+// REUSABLE PIECES
+
+.card() {
+  background: white;
+  border-radius: 2px;
+  overflow: hidden;
+  .shadow;
+  //margin-bottom: 1em;
+}
+
+.speech-bubble(@color: @main-color, @secondary: white){
+  background-color: @color;
+  color: contrast(@color, @clr-grey-50, @clr-grey-900);
+  line-height: 1.5;
+  padding: 1em;
+  border-radius: .5em;
+  border-top-left-radius: 0;
+
+  position: relative;
+
+  .filter(drop-shadow(0 0.1em 0.2em fade(@clr-grey-900, 15%)));
+
+  &:before{
+    content:'';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 1em 1em 0;
+    border-color: transparent @color transparent transparent;
+    position: absolute;
+    top: 0;
+    left: -1em;
+  }
+
+  .badge{
+    margin-left: 1em;
+    display: inline-block;
+    font-size: .9em;
+    color: @color;
+    background-color: @secondary;
+    padding: .3em .5em;
+    border-radius: .3em;
+  }
+}
+
+.shadow(){
+  .box-shadow(0 0.1em 0.2em fade(@clr-grey-900, 20%));
+}
+
+.round-btn(@icon, @color: @clr-grey-400, @nh-color: @color){
+
+  font-size: 0;
+
+  &:before {
+
+    @size: 20px;
+
+    font-family: MaterialDesignIcons;
+
+    display: inline-block;
+    content: @icon;
+    color: @nh-color;
+    //background-color: @color;
+    border: 2px solid @nh-color;
+    font-size: @size;
+    width: @size;
+    height: @size;
+    text-align: center;
+    line-height: @size;
+    padding: 6px;
+    border-radius: 50%;
+
+    .transition(all .3s);
+  }
+
+  &:hover:before{
+    color: white;
+    background-color: @color;
+    border-color: @color;
+  }
+}

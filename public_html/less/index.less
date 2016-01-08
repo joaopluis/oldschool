@@ -1,0 +1,77 @@
+@import 'reset';
+@import 'colors';
+@import 'brandcolors';
+@import 'variables';
+@import 'mixins';
+
+@border: 2px solid black;
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  .font-body;
+  .display-flex;
+}
+
+.top {
+  .flex;
+  padding: 2em;
+  .display-flex;
+  .justify-content(center);
+  .align-items(center);
+
+  img {
+    max-width: 80%;
+  }
+}
+
+.bottom {
+  .flex;
+  background-color: @main-color;
+  color: white;
+
+  .display-flex;
+  .justify-content(center);
+  //.align-items(stretch);
+  .flex-direction-column;
+
+  ul {
+    @border: 3px solid white;
+    border-top: @border;
+    display: block;
+    li {
+      display: block;
+      a {
+        display: block;
+        border-bottom: @border;
+        color: white;
+        text-decoration: none;
+        font-size: 1.8em;
+        padding: .8em 1em;
+
+        .transition(all .5s);
+
+        &:hover {
+          background-color: white;
+          color: @main-color;
+        }
+      }
+    }
+  }
+}
+
+@media @phone-only{
+  body {
+    .flex-direction-column;
+  }
+
+  .bottom {
+    .flex(2);
+    ul li a {
+      text-align: center;
+    }
+  }
+}

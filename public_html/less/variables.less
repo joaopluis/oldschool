@@ -1,0 +1,29 @@
+@font-body: 'Quicksand Pro', sans-serif;
+@font-headers: 'Quicksand Pro', sans-serif;
+@font-mono: monospace;
+
+@main-color: #bf360c;
+
+@success-color: @clr-green-600;
+@warning-color: @clr-amber-600;
+@info-color: @clr-blue-500;
+@danger-color: @clr-red-500;
+
+// DISPLAY VARS
+
+@xs-min: 480px;
+@sm-min: 768px;
+@md-min: 992px;
+@lg-min: 1200px;
+
+@xs-max: (@sm-min - 1);
+@sm-max: (@md-min - 1);
+@md-max: (@lg-min - 1);
+
+
+@phone-only : ~"only screen and (max-width: @{xs-max})";
+@tablet: ~"only screen and (min-width: @{sm-min})";
+@tablet-only : ~"only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})";
+@desktop: ~"only screen and (min-width: @{md-min})";
+@desktop-only : ~"only screen and (min-width: @{sm-min}) and (max-width: @{sm-max})";
+@large: ~"only screen and (min-width: @{lg-min})";

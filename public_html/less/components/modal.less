@@ -1,0 +1,37 @@
+.modal{
+
+  @border: 1px solid @clr-grey-50;
+
+  display: none;
+  min-width: 40em;
+  background-color: white;
+  border-radius: .4em;
+
+  &__header{
+    padding: 1em;
+    .display-flex;
+    .justify-content(space-between);
+    .align-items(center);
+    border-bottom: @border;
+  }
+  &__title{
+    font-style: italic;
+    font-size: 1.2em;
+    b{
+      font-weight: bold;
+    }
+  }
+
+  &__dismiss{
+    color: @clr-grey-500;
+    cursor: pointer;
+  }
+
+  &__body{
+    padding: 1em;
+  }
+  &__footer{
+    border-top: @border;
+    padding: 1em;
+  }
+}
